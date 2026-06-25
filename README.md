@@ -1,28 +1,28 @@
+### In progress ###
+
+Still updating and amending
+
 # CodeLens
 
 Read, interpret, and fix AI-generated code. Paste a file and get three things:
 
 1. **Summary** — a one-liner + short paragraph on what the code does and how it flows.
-2. **Section map** — the whole file split top-to-bottom into labeled sections, with the 2–4 most important ones marked as **★ milestones**. Hover a section to highlight it in the code; click it for a line-by-line walkthrough.
+2. **Section map** — the whole file split top-to-bottom into labeled sections, with the 2–4 most important ones marked as **milestones**. Hover a section to highlight it in the code; click it for a line-by-line walkthrough.
 3. **Bugs** — real defects (not style nags) with a plain-language explanation and a ready-to-paste fix. When a fix depends on what you intended, it asks you a question first.
 
 It runs entirely on your own machine and opens in your browser. Your API key stays in the local server and is never sent to the frontend.
 
----
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## One-time setup
 
 You need [Node.js](https://nodejs.org) (version 18 or newer). Check with:
 
-```
 node --version
-```
 
 Then, in this folder:
 
-```
 npm install
-```
 
 Add your API key:
 
@@ -30,24 +30,22 @@ Add your API key:
 2. Open `.env` and paste your key after `ANTHROPIC_API_KEY=`
    (get one at https://console.anthropic.com)
 
-On Windows you can copy the file with:
+On Windows, you can copy the file with:
 
-```
 copy .env.example .env
-```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Running it
 
-```
 npm run dev
-```
 
 This starts both the backend (port 8787) and the web app (port 5173).
 Open **http://localhost:5173** in your browser. That's it.
 
 To stop it, press `Ctrl + C` in the terminal.
 
----
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## How it maps to the resume tool
 
@@ -93,3 +91,4 @@ Backend on Render, frontend on Vercel — same as the resume evaluator. The depl
 
 - **Cost (online):** each analysis is two calls (map + bugs) sized to your file. A few hundred lines is well under a cent on Sonnet. Offline is free. Walkthroughs and answer-drafts are extra small calls, only when you click.
 - Nothing is stored. Refreshing the page clears everything.
+- 
