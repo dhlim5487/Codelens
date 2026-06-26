@@ -1,0 +1,18 @@
+# Render Blueprint — deploys the CodeLens backend as a Web Service.
+# In the Render dashboard: New → Blueprint → connect your repo.
+# Then set ANTHROPIC_API_KEY in the service's Environment settings.
+# Note: offline (Ollama) mode only works when running locally; the deployed
+# app is online-only and hides the toggle automatically.
+services:
+  - type: web
+    name: codelens-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/index.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false   # set this manually in the dashboard, never in the repo
+      - key: MODEL
+        value: claude-sonnet-4-6
